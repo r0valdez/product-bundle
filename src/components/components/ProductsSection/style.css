@@ -3,3 +3,16 @@
   grid-template-columns: 22% 22% 22% 22%;
   column-gap: 4%;
 }
+
+@media screen and (max-width: 1280px) {
+  .product-grid {
+    grid-template-columns: 47% 47%;
+    column-gap: 6%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .product-grid {
+    grid-template-columns: 100%;
+  }
+}

@@ -1,6 +1,6 @@
 .product-card {
   display: inline-block;
-  width: 205px;
+  width: 100%;
   height: 260px;
   margin-bottom: 40px;
   background-color: #fff;
