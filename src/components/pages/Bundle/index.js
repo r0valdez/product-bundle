@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useContext } from 'react';
 import ProductsSection from '../../components/ProductsSection';
 import { AppContext } from '../../../store/context';
 import { productsData } from '../../../mockData';
@@ -28,7 +28,7 @@ function Bundle() {
               </div>
             </div>
             <div className="add-to-cart">
-              <button className={`button ${pack.length == 3 ? 'active' : ''}`}>ADD TO CART</button>
+              <button className={`button ${pack.length === 3 ? 'active' : ''}`}>ADD TO CART</button>
             </div>
           </div>
         </div>

@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 import { AppContext } from '../../../store/context';
 import './style.css';
 
@@ -8,7 +8,7 @@ function ProductCard({ data }) {
   const { pack, setPack } = useContext(AppContext)
 
   const increase = () => {
-    if (pack.length < 3 && !pack.find(item => item.name == data.name)) {
+    if (pack.length < 3 && !pack.find(item => item.name === data.name)) {
       setValue(value + 1)
       setPack([ ...pack, data])
       setSelected(true)
@@ -18,7 +18,7 @@ function ProductCard({ data }) {
   const decrease = () => {
     if (value > 0) {
       setValue(value - 1)
-      setPack(pack.filter(item => item.name != data.name))
+      setPack(pack.filter(item => item.name !== data.name))
       setSelected(false)
     }
   }
@@ -27,7 +27,7 @@ function ProductCard({ data }) {
     <div className="product-card">
       {data.name}
       <div style={{ width: "100%", height: "180px" }}></div>
-      <div className={`quantity ${selected ? 'selected' : ''} ${pack.length == 3 ? 'inactive' : ''}`}>
+      <div className={`quantity ${selected ? 'selected' : ''} ${pack.length === 3 ? 'inactive' : ''}`}>
         <span onClick={decrease}>-</span>
         <span>{value}</span>
         <span onClick={increase}>+</span>
