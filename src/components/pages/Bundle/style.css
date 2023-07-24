@@ -37,7 +37,7 @@
 .pack .preview {
   padding: 20px 0;
   display: flex;
-  align-items: center;
+  justify-content: center;
 }
 
 .pack .preview > div {
