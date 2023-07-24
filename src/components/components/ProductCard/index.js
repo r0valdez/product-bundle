@@ -8,18 +8,35 @@ function ProductCard({ data }) {
   const { pack, setPack } = useContext(AppContext)
 
   const increase = () => {
-    if (pack.length < 3 && !pack.find(item => item.name === data.name)) {
-      setValue(value + 1)
+    if (pack.length < 3) {
+      if (value === 0) {
+        setSelected(true)
+      }
       setPack([ ...pack, data])
-      setSelected(true)
+      setValue(value + 1)
     }
   }
 
   const decrease = () => {
     if (value > 0) {
+      if (value === 1) {
+        setSelected(false)
+      }
+
+      let removed = false
+
+      const updatedPack = pack.reduce((result, item) => {
+        if (item.name === data.name && !removed) {
+          removed = true
+        } else {
+          result.push(item)
+        }
+
+        return result
+      }, [])
+
+      setPack(updatedPack)
       setValue(value - 1)
-      setPack(pack.filter(item => item.name !== data.name))
-      setSelected(false)
     }
   }
 

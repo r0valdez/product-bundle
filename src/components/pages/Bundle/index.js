@@ -23,7 +23,7 @@ function Bundle() {
             </div>
             <div className="preview">
               <div>
-                {pack.length > 0 && pack.map(item => <div key={item.name} className="item">{item.name}</div>)}
+                {pack.length > 0 && pack.map((item, index) => <div key={`${item.name}-${index}`} className="item">{item.name}</div>)}
                 {new Array(3 - pack.length).fill(0).map((_, index) => <div key={index} className="item"></div>)}
               </div>
             </div>
