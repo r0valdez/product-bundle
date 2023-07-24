@@ -8,10 +8,10 @@ function ProductCard({ data }) {
   const { pack, setPack } = useContext(AppContext)
 
   const increase = () => {
-    if (pack.length < 3) {
+    if (pack.length < 3 && !pack.find(item => item.name == data.name)) {
       setValue(value + 1)
       setPack([ ...pack, data])
-      setSelected(!selected)
+      setSelected(true)
     }
   }
 
@@ -19,7 +19,7 @@ function ProductCard({ data }) {
     if (value > 0) {
       setValue(value - 1)
       setPack(pack.filter(item => item.name != data.name))
-      setSelected(!selected)
+      setSelected(false)
     }
   }
 
